@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogTest</title>
+    <title>Blog</title>
     <%= csrf_meta_tags %>
-
+     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <p>Blog App</p>
   </head>
 
   <body>
     <%= yield %>
   </body>
+  <br>
+  <br>
+  <br>
+  <footer>
+    <p>Copyright © 2018 ○○○○ All Rights Reserved.</p>
+  </footer>
+     
 </html>
