@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog,only: [:show, :edit, :update,:destroy]
+  before_action :require_login,only: [:new, :edit, :show]
   
   def index
     @blogs = Blog.all
@@ -49,7 +50,16 @@ class BlogsController < ApplicationController
     render :new if @blog.invalid?
   end
   
- private
+  
+  private
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_path # halts request cycle
+    end
+  end
+ 
   def blog_params
     params.require(:blog).permit(:title,:content)
   end
