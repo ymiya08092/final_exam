@@ -28,3 +28,25 @@ width:100%;
 max-width: 100%;
 height: auto;
 }
+
+.navbar-toggle {
+display: none;
+}
+.collapse {
+display: block;
+border-color:transparent;
+}
+/* navbar-leftの場合はここをleftに変える */
+.navbar-right {
+float: right;
+}
+.navbar-header {
+float: left;
+}
+.navbar-nav {
+margin:0 -15px 0 0;
+}
+.navbar-nav>li>a {
+padding-top: 15px;
+padding-bottom: 15px;
+}
