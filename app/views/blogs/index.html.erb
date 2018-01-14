@@ -37,15 +37,15 @@
     <tr>
       <td><%= blog.title %></td>
       <td><%= blog.content %></td>
-      <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>
-      <td><%= link_to "ブログを編集する", edit_blog_path(blog.id),data: { confirm: '本当に編集していいですか？' } %></td>
-      <td><%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
+      <td><%= link_to '詳細を確認する', blog_path(blog.id),class:"btn btn-default btn-sm"%></td>
+      <td><%= link_to "ブログを編集する", edit_blog_path(blog.id),class:"btn btn-default btn-sm",data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to 'ブログを削除する', blog_path(blog.id),class:"btn btn-default btn-sm", method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
     </tr>
     <% end %>
   </table>
 
   <br>
-  <%= link_to 'ブログ一覧画面にもどる', blogs_path %>
-  <%= link_to '新しくブログを投稿する', new_blog_path %>
+  <%= link_to 'ブログ一覧画面にもどる', blogs_path,class:"btn btn-default btn-sm"%>
+  <%= link_to '新しくブログを投稿する', new_blog_path,class:"btn btn-default btn-sm"%>
   
 </div>
