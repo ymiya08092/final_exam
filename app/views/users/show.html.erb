@@ -2,4 +2,11 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 <br>
+
+<p>お気に入り一覧</p>
+  <% @user.favorites.each do |favorite| %>
+    <% blog = Blog.find(favorite.blog_id) %>
+    <div class="name3"><%= link_to blog.title, blog_path(blog) %></div>
+  <% end %>
+</br>
 <p><%= link_to 'ブログ一覧','/blogs' %></p>

@@ -34,13 +34,15 @@
     </tr>
   
     <% @blogs.each do |blog| %>
-    <tr>
-      <td><%= blog.title %></td>
-      <td><%= blog.content %></td>
-      <td><%= link_to '詳細を確認する', blog_path(blog.id),class:"btn btn-default btn-sm"%></td>
-      <td><%= link_to "ブログを編集する", edit_blog_path(blog.id),class:"btn btn-default btn-sm",data: { confirm: '本当に編集していいですか？' } %></td>
-      <td><%= link_to 'ブログを削除する', blog_path(blog.id),class:"btn btn-default btn-sm", method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
-    </tr>
+        <tr>
+          <td><%= blog.title %></td>
+          <td><%= blog.content %></td>
+          <td><%= link_to '詳細を確認する', blog_path(blog.id),class:"btn btn-default btn-sm"%></td>
+      <% if current_user == blog.user %>
+            <td><%= link_to "ブログを編集する", edit_blog_path(blog.id),class:"btn btn-default btn-sm",data: { confirm: '本当に編集していいですか？' } %></td>
+            <td><%= link_to 'ブログを削除する', blog_path(blog.id),class:"btn btn-default btn-sm", method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
+       </tr>
+      <% end %> 
     <% end %>
   </table>
 
