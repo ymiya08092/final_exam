@@ -6,6 +6,8 @@ class MailerMailer < ApplicationMailer
     end
      def create_blog(blog)
        @blog = blog.user.email
+       @title = blog.title
+       @content = blog.content
        mail to: @blog, subject: "ブログを作成しました"
      end
 end
