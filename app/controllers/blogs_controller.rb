@@ -27,11 +27,21 @@ class BlogsController < ApplicationController
     @user_id = current_user.id
     @blog.user_id = current_user.id
     @favorite = Favorite.new(blog_id: @blog_id, user_id: @user_id)
+    respond_to do |format|
     if @blog.save
-      redirect_to blogs_path, notice: 'ブログを作成しました！.' 
-    else
-      render 'new'
+    ##  redirect_to blogs_path, notice: 'ブログを作成しました！.' 
+    ##  else
+    ##  render 'new'
+    ##end
+       MailerMailer.create_blog(@blog).deliver_later
+        
+        format.html { redirect_to(blogs_path, notice: 'ブログが正常に作成されました。') }
+        format.json { render json: @blog, status: :created, location: @blog }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
     end
+  end
   end
   
   def edit
@@ -73,4 +83,5 @@ class BlogsController < ApplicationController
   def set_blog
     @blog = Blog.find(params[:id])
   end
+  
 end
