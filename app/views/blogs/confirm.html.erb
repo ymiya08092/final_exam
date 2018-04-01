@@ -7,11 +7,9 @@
   <p>タイトル:<%= @blog.title %></p>
   <p>本文:<%= @blog.content %></p>
   <p>画像：
-  <% unless params[:image].nil? %>
   <%= image_tag(@blog.image.url) %>
 　<%= hidden_field_tag :"cache[image]",@blog.image.cache_name %>
 　</p>
-　<% end %>
 　<br>
   <%= form.submit  "登録する" %>
 <% end %>
