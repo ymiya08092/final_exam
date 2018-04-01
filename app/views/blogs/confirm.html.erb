@@ -7,7 +7,7 @@
   <p>タイトル:<%= @blog.title %></p>
   <p>本文:<%= @blog.content %></p>
   <p>画像：
-  <% if params[:image].present? %>
+  <% if user_params[:image].present? %>
   <%= image_tag(@blog.image.url) %>
 　<%= hidden_field_tag :"cache[image]",@blog.image.cache_name %>
 　</p>
