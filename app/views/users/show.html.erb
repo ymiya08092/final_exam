@@ -9,4 +9,13 @@
     <div class="name3"><%= link_to blog.title, blog_path(blog) %></div>
   <% end %>
 </br>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.image %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> 
 <p><%= link_to 'ブログ一覧','/blogs' %></p>

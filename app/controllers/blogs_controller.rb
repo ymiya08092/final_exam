@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
-    @user = User.find(params[:id])
+##    @user = User.find(params[:id])
     @favorites = Favorite.where("user_id = ?", @user)
      
   end
@@ -27,6 +27,9 @@ class BlogsController < ApplicationController
     @user_id = current_user.id
     @blog.user_id = current_user.id
     @favorite = Favorite.new(blog_id: @blog_id, user_id: @user_id)
+    if params[:image].present?
+      @blog.image.retrieve_from_cache! params[:cache][:image]
+    end
     respond_to do |format|
     if @blog.save
     ##  redirect_to blogs_path, notice: 'ブログを作成しました！.' 
@@ -77,7 +80,7 @@ class BlogsController < ApplicationController
   end
  
   def blog_params
-    params.require(:blog).permit(:title,:content)
+    params.require(:blog).permit(:title,:content,:image)
   end
   
   def set_blog

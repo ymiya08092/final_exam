@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :confirm_image,only: [:update]
   def new
     @user = User.new
   end
@@ -22,9 +23,30 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+   @user = User.find(params[:id])
+##   rescue ActiveRecord::InvalidError => e
+##   binding.pry
+   if @user.update(user_params)
+      redirect_to user_path, notice: '画像をアップロードしました。'
+   else
+      render edit
+   end
+  end
+  
   private
+  def confirm_image
+    if user_params[:image].nil?
+    redirect_to user_path, notice: '更新に失敗しました。'
+    end
+  end
+  
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :password, :image,
                                  :password_confirmation)
   end
 end
