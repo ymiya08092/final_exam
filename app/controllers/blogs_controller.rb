@@ -26,8 +26,7 @@ class BlogsController < ApplicationController
     @user_id = current_user.id
     @blog.user_id = current_user.id
     @favorite = Favorite.new(blog_id: @blog_id, user_id: @user_id)
-    @blog.image.retrieve_from_cache! params[:cache][:image] if @blog.image.present?
-    binding.pry
+    @blog.image.retrieve_from_cache! params[:cache][:image] if params[:cache][:image].present?
       respond_to do |format|
     if @blog.save
     ##  redirect_to blogs_path, notice: 'ブログを作成しました！.' 
