@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="pictures-all-title">
+      <h1>お気に入り一覧</h1>
+  </div>
+  <div class="pictures-all-contents">
+    <table class= "table">
+    <!--<tr>
+      <th>タイトル</th>
+      <th>内容</th></th>
+    </tr>-->
+  
+      <% @favorites.each do |favorite| %>
+        <div class="panel panel-default">
+          <div class="panel-body"> 
+          <tr>
+            <td><p>ユーザー名：</p><%= favorite.user.name %></td>
+            <td><p>投稿内容：</p><%= favorite.picture.content %></td>
+            <td><%= link_to '詳細', picture_path(favorite.picture.id),class:"btn btn-success btn-sm"%></td>
+          </div>
+        </div>
+      <% end %>
+    </table>
+  </div>
+</div>

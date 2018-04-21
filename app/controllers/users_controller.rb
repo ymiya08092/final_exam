@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :confirm_image,only: [:update]
+   protect_from_forgery :except => [:create]
+   
   def new
     @user = User.new
   end
@@ -36,6 +38,12 @@ class UsersController < ApplicationController
    else
       render edit
    end
+  end
+  
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = Favorite.all
+    @picture = Picture.all
   end
   
   private

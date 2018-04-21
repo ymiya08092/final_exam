@@ -10,7 +10,10 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
+  # 開発する際はtrue
   config.consider_all_requests_local = true
+  # 500,404のエラーを検証する際はfalse
+  # config.consider_all_requests_local = false
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?

@@ -6,11 +6,17 @@ Rails.application.routes.draw do
   get 'tops/index'
 
   root 'tops#index'
-   resources :blogs do
-    collection do
-      post :confirm
+   resources :pictures do
+     collection do
+       post :confirm
+     end
+  end
+  resources :users do
+    member do
+      get "favorites" => "users#favorites"
     end
   end
+  
   
     get 'sessions/new'
   

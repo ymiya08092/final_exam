@@ -1,21 +1,22 @@
-<h1><%= @user.name %>のページ</h1>
-
-<p>メールアドレス: <%= @user.email %></p>
-<br>
-
-<p>お気に入り一覧</p>
-  <% @user.favorites.each do |favorite| %>
-    <% blog = Blog.find(favorite.blog_id) %>
-    <div class="name3"><%= link_to blog.title, blog_path(blog) %></div>
-  <% end %>
-</br>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @user.image %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> 
-<p><%= link_to 'ブログ一覧','/blogs' %></p>
+<div class="mypagetitle">
+  <h1><%= @user.name %>のページ</h1>
+</div>
+<div class="mypagecontent">
+  <div class="mypagetext">
+    <p>メールアドレス: <%= @user.email %></p>
+    <p id="notice"><%= notice %></p>
+    <p>
+    <strong>Image:</strong>
+    <%= image_tag @user.image %>
+    </p>
+    <div class="text-margin">
+      <%= link_to 'プロフィール画像を登録する', edit_user_path(@user) %> 
+    </div>
+    <div class="text-margin">
+      <p><%= link_to 'お気に入り一覧',favorites_user_path %></p>
+    </div>
+    <div class="text-margin">
+      <p><%= link_to '投稿一覧','/pictures' %></p>
+    </div>
+  </div>
+</div>

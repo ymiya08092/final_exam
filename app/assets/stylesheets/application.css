@@ -14,6 +14,14 @@
  *= require_tree .
  *= require_self
  */
+ body, html, main {
+    /* important */
+    height: 100%;
+    margin: 0;
+}
+footer {
+text-align: center;
+}
 
 ul {
   list-style:none;
@@ -27,6 +35,18 @@ img {
 width:100%;
 max-width: 100%;
 height: auto;
+}
+.cd-fixed-bg {
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+  
+.cd-fixed-bg.cd-bg-1 {
+margin: 10px;
+padding: 10px;
 }
 
 /* ハンバーガーメニューにしない為のCSS*/
@@ -51,4 +71,9 @@ margin:0 -15px 0 0;
 .navbar-nav>li>a {
 padding-top: 15px;
 padding-bottom: 15px;
+}
+.navbar-default {
+background-color: #2bd;;
+border-color: #3e6962;
+border-bottom: 6px solid #efefef;
 }

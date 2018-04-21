@@ -1,3 +1,29 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  /* 設定したい画像 */
+  background-image: url(/image/insta.jpg);
+  /* 画像を上下左右中央寄せ */
+  background-position: center center;
+  /* タイル状には並べないように指定 */
+  background-repeat: no-repeat;
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+  /* 表示するディスプレイの大きさに基づいて、背景画像を縦横比を固定しながら調整 */
+  background-size: cover;
+  /* 画像が読み込まれる前の背景色の指定 */
+  background-color: #464646;
+}
+
+nav {
+  list-style: none;
+  overflow: hidden;
+}
+
+nav li {
+  width: 20px;
+  text-align: center;
+  float: right;
+}
