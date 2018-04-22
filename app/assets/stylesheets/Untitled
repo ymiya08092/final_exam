@@ -27,9 +27,6 @@ text-align: center;
 ul {
   list-style:none;
 }
-li {
-display: inline-block;
-}
 
 body {
 background-color: #eee;

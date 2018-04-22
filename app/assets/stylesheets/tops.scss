@@ -23,7 +23,13 @@ nav {
 }
 
 nav li {
-  width: 20px;
-  text-align: center;
+  width: 600px;
+  text-align: right;
+  display: inline-block;
   float: right;
+}
+
+nav ul {
+float: right;
+width: 600px;
 }
