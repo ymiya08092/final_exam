@@ -26,22 +26,19 @@ class PicturesController < ApplicationController
     @user_id = current_user.id
     @picture.user_id = current_user.id
     @favorite = Favorite.new(picture_id: @picture_id, user_id: @user_id)
-    @picture.image.retrieve_from_cache! params[:cache][:image] if params[:cache][:image].present?
-      respond_to do |format|
+  　@picture.image.retrieve_from_cache! params[:cache][:image] if params[:cache][:image].present?
+        respond_to do |format|
+   ## binding.pry
     if @picture.save
-    ##  redirect_to pictures_path, notice: 'ブログを作成しました！.' 
-    ##  else
-    ##  render 'new'
-    ##end
-       MailerMailer.create_picture(@picture).deliver_later
+        MailerMailer.create_picture(@picture).deliver_later
         
         format.html { redirect_to(pictures_path, notice: '正常に投稿されました！') }
         format.json { render json: @picture, status: :created, location: @picture }
-      else
+    else
         format.html { render action: 'new' }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
     end
-  end
+    end
   end
   
   def edit

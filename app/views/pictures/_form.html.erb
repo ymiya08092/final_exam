@@ -1,6 +1,11 @@
 <%= form_with(model: @picture, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
+      <script type="text/javascript">
+　　　　$(document).ready(function() {
+　　　  history.pushState('', '', location.href + '/new')
+　　　　});
+　　　</script>
       <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
       <ul>
 
