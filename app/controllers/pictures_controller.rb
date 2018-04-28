@@ -28,7 +28,7 @@ class PicturesController < ApplicationController
     @favorite = Favorite.new(picture_id: @picture_id, user_id: @user_id)
   　@picture.image.retrieve_from_cache! params[:cache][:image] if params[:cache][:image].present?
         respond_to do |format|
-   ## binding.pry
+    ##binding.pry
     if @picture.save
         MailerMailer.create_picture(@picture).deliver_later
         
@@ -61,6 +61,8 @@ class PicturesController < ApplicationController
   
   def confirm
     @picture = Picture.new(picture_params)
+    @picture.user_id = current_user.id
+   　render :new if @picture.invalid?
   end
   
   
