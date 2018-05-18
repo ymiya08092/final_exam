@@ -1,0 +1,63 @@
+<script>
+　　　　window.onload = function() {
+  console.log('onload 2');
+  var query = window.location.search.substring(1);
+  if( query.length == 0 ){
+    setTimeout("myfunc()",0);
+  }
+}
+function myfunc() {
+//  window.location.reload(true);
+  window.location = window.location + "?0";
+}        
+</script>
+
+
+<%= form_for @place, :url =>'confirm' do |f| %>
+
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @place.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @place.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    
+    <% end %>
+  <% puts @current_user %>
+  <div class="panel panel-default">
+    <div class="panel-body"> 
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_field :description, class: "description" %>
+      </div>
+      <div class="field">
+        <%= f.label :category %><br>
+        <%= f.text_field :category, class: "category" %>
+      </div>
+      <div class="field">
+        <%= f.label :address %><br>
+        <%= f.text_field :address, class: "address" %>
+      </div>
+      
+      <%= link_to "SEARCH",'/places/new', class: "map-search-button" %>
+      <br>
+      <div class="map-canvas" style="height: 0;"
+                data-lat="<%= f.object.latitude %>"
+                data-lng="<%= f.object.longitude %>">
+      </div>
+        <%= f.text_field :latitude, readonly: true %>
+        <%= f.text_field :longitude,readonly: true %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,117 @@
+// Place all the styles related to the Blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form {
+margin:0 auto;
+text-align:left;
+width:500px;
+}
+
+.picture-new-backtoindex {
+text-align:center;
+margin-top: 50px;
+}
+
+.confirm {
+text-align:center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.pictures-all-contents {
+margin:0 auto;
+width:800px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 56.25%;
+}
+
+.map-canvas {
+    position: relative;
+    top: 0;
+    right: 40%;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+.map-route {
+    overflow: scroll;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 54px;
+    left: 60%;
+    margin: 0;
+    padding: 10px;
+}
+
+.map-search {
+    position: absolute;
+    height: 54px;
+    right: 0;
+    bottom: 0;
+    left: 60%;
+    margin: 0;
+    padding: 10px;
+}
+
+.show-place {
+margin:0 auto;
+text-align:left;
+width:800px;
+}
+
+.search-index {
+text-align: center;
+}
+
+.confirm-button-back {
+text-align:left;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.css_map-show-canvas {
+width:100%;
+}
+
+.margin-top {
+margin-top:20px;
+}
+
+.margin-bottom {
+margin-bottom:20px
+ }
+ 
+.description {
+width: 500px;
+height: 100px;
+ }
+ 
+.title {
+width: 500px;
+height: 20px;
+ }
+ 
+ .address {
+width: 500px;
+height: 20px;
+ }
+ 
+.search-bottun {
+width:100px;
+text-align: center;
+margin-left: 40%;
+margin-top: 10px;
+}
+
+.places-search-form  {
+width : 500px;
+text-align: center;
+}

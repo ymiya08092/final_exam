@@ -4,7 +4,7 @@
 
 body {
   /* 設定したい画像 */
-  background-image: url(/image/insta.jpg);
+  background-image: url(/image/map.jpg);
   /* 画像を上下左右中央寄せ */
   background-position: center center;
   /* タイル状には並べないように指定 */
@@ -32,4 +32,26 @@ nav li {
 nav ul {
 float: right;
 width: 600px;
+}
+
+.top-text p {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 20px;/*サイズ2倍*/
+  font-family :Quicksand, sans-serif;/*Google Font*/
+  top: 10%;
+  right: 16%;
+  margin: 0,auto;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  width: 70%;
+  height: 15%;
+  background-color: rgba(0, 0, 0, 0.7);
+    
+
+}
+
+.btn-fontsize {
+font-size: 20px;
 }

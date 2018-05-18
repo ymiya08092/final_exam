@@ -1,0 +1,79 @@
+<div class="user-new-title">
+  <h1>New post</h1>
+</div>
+<!--
+<script>
+　　　　window.onload = function() {
+  console.log('onload 2');
+  var query = window.location.search.substring(1);
+  if( query.length == 0 ){
+    setTimeout("myfunc()",0);
+  }
+}
+function myfunc() {
+//  window.location.reload(true);
+  window.location = window.location + "?0";
+}        
+</script>
+-->
+
+<div class="card bg-light" style="width: 600px; margin: auto;">
+  <div class="card-body"> 
+
+    <%= form_for @place, :url =>'confirm' do |f| %>
+
+      <% if @place.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @place.errors.count %>件のエラーがあります。</h2>
+          <ul>
+
+          <% @place.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+    
+        <% end %>
+      <% puts @current_user %>
+      
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, class: "title" %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, class: "description" %>
+      </div>
+      <div class="field">
+        <%= f.label :category %><br>
+        <%= f.text_field :category, class: "category" %>
+      </div>
+      <div class="field">
+        <%= f.label :address %><br>
+        <%= f.text_field :address, class: "address" %>
+      </div>
+      
+    <!--  <%= link_to "SEARCH",'#', class: "map-search-button btn btn-primary btn-sm margin-bottom" %> -->
+      <br>
+      <div class="map-canvas" style="height: 0;"
+                data-lat="<%= f.object.latitude %>"
+                data-lng="<%= f.object.longitude %>">
+      </div>
+<!--        <%= f.text_field :latitude, readonly: true %> -->
+<!--        <%= f.text_field :longitude,readonly: true %> -->
+        <br>
+      <div class="form-group margin-top">
+          <input type="submit" name="commit" value="Submit" class="btn btn-lg btn-primary btn-block btn-signin" data-disable-with="Confirmation" />
+      </div>  
+        
+ <!--       <script>
+    function koshin(){
+    location.reload();
+  }
+  </script>  -->
+ 
+ 
+<!--    <input type="button"  value="地図を表示" onclick="koshin()"> -->
+    </div>
+  </div>
+<% end %>

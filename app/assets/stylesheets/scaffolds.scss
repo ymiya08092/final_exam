@@ -1,6 +1,5 @@
 body {
   background-color: #fff;
-  color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -22,9 +21,6 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
 
   &:hover {
     color: #fff;
@@ -74,7 +70,8 @@ div {
   }
 
   ul li {
-    font-size: 12px;
+    font-size: 18px;
+    line-height: 1px;
     list-style: square;
   }
 }

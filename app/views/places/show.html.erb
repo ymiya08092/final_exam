@@ -1,0 +1,49 @@
+<div class="card bg-light" style="width: 1000px; margin: auto;">
+  <div class="card-body"> 
+
+    <p id="notice"><%= notice %></p>
+
+    <div class="show-place">
+
+      <p>
+        <strong>Title:</strong>
+        <%= @place.title %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @place.description %>
+      </p>
+  
+      <p>
+        <strong>Category:</strong>
+        <%= @place.category %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @place.address %>
+      </p>
+
+      <script>
+        function koshin(){
+        location.reload();
+      }
+      </script>
+ 　　　<div class="form-group margin-top">
+          <input type="submit" name="commit" value="Map" onclick="koshin()" class="btn btn-lg btn-dark btn-block"  />
+      </div>  
+ 
+      <br>
+      <div class="css_map-show-canvas">
+        <div class="map-show-canvas"
+              data-latitude="<%= @place.latitude %>"
+              data-longitude="<%= @place.longitude %>">
+        </div>
+      </dic>
+
+      <%= link_to 'Edit', edit_place_path(@place) %> |
+      <%= link_to 'Back', places_path %>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,19 @@
+<p id="notice"><%= notice %></p>
 <div class="mypagetitle">
-  <h1><%= @user.name %>のページ</h1>
+  <h1><%= @user.name %>'s profile</h1>
 </div>
-<div class="mypagecontent">
-  <div class="mypagetext">
-    <p>メールアドレス: <%= @user.email %></p>
-    <p id="notice"><%= notice %></p>
-    <p>
-    <strong>Image:</strong>
-    <%= image_tag @user.image %>
-    </p>
-    <div class="text-margin">
-      <%= link_to 'プロフィール画像を登録する', edit_user_path(@user) %> 
-    </div>
-    <div class="text-margin">
-      <p><%= link_to 'お気に入り一覧',favorites_user_path %></p>
-    </div>
-    <div class="text-margin">
-      <p><%= link_to '投稿一覧','/pictures' %></p>
+
+<div class="card bg-light" style="width: 600px; margin: auto;">
+  <div class="card-body"> 
+    <div class="mypagecontent">
+      <div class="mypagetext">
+        <p>Email address: <%= @user.email %></p>
+          <div class="text-margin">
+          　 <%= link_to 'Change my email address or password',edit_user_registration_path,class:"btn btn-primary btn-sm"%>
+          　  <%= link_to'Cancel my account', user_path(@user.id), data: { confirm: "Are you sure?" }, method: :delete,class:"btn btn-danger btn-sm"%>
+
+       </div>
+      </div>
     </div>
   </div>
 </div>

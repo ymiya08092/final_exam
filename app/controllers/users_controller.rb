@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :confirm_image,only: [:update]
+  before_action :configure_permitted_parameters, if: :devise_controller?
    protect_from_forgery :except => [:create]
    
   def new
@@ -40,6 +41,12 @@ class UsersController < ApplicationController
    end
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to '/'
+  end
+  
   def favorites
     @user = User.find(params[:id])
     @favorites = Favorite.all
@@ -47,14 +54,11 @@ class UsersController < ApplicationController
   end
   
   private
-  def confirm_image
-    if user_params[:image].nil?
-    redirect_to user_path, notice: '更新に失敗しました。'
-    end
-  end
   
   def user_params
     params.require(:user).permit(:name, :email, :password, :image,
                                  :password_confirmation)
   end
+  
+
 end

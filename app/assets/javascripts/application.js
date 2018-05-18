@@ -14,3 +14,4 @@
 //= require turbolinks
 //= require jquery/dist/jquery.js
 //= require_tree .
+//= require map_helper/map_helper

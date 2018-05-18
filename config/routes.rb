@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'session/index'
 
   get 'user/index'
 
   get 'tops/index'
-
-  root 'tops#index'
-   resources :pictures do
+  
+   resources :places do
      collection do
+       get "categories" => "places#categories"
        post :confirm
      end
   end
+
+  root 'tops#index'
+  
   resources :users do
     member do
       get "favorites" => "users#favorites"
