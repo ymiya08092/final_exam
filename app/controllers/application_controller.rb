@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     user_path(current_user.id)
   end
   
+  def after_inactive_sign_up_path_for(resource)
+    user_path(current_user.id)
+  end
+  
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
   end
