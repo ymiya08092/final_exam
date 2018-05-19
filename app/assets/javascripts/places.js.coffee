@@ -9,7 +9,7 @@ ready = ->
     script = document.createElement('script')
     script.type = 'text/javascript';
     ##script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDE9c9EOFd9YnXyEJDrhD-S1dojx1tzQOc&callback=triggerMap'
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDE9c9EOFd9YnXyEJDrhD-S1dojx1tzQOc&callback=triggerMap'
+    ##script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDE9c9EOFd9YnXyEJDrhD-S1dojx1tzQOc&callback=triggerMap'
     ##script.src = 'https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&callback=triggerMap'
     document.body.appendChild(script)
 
