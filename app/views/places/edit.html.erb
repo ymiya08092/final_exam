@@ -41,22 +41,22 @@
                 data-lat="<%= f.object.latitude %>"
                 data-lng="<%= f.object.longitude %>">
       </div>
-        <%= f.text_field :latitude, readonly: true %>
-        <%= f.text_field :longitude,readonly: true %>
+<!--        <%= f.text_field :latitude, readonly: true %>
+        <%= f.text_field :longitude,readonly: true %> -->
       <div class="form-group">
           <input type="submit" name="commit" value="Update" class="btn btn-lg btn-primary btn-block btn-signin" data-disable-with="Edit map notes" />
       </div>
-        <script>
+<!--        <script>
     function koshin(){
     location.reload();
   }
   </script>
 
  
-    <input type="button"  value="地図を表示" onclick="koshin()">
+    <input type="button"  value="地図を表示" onclick="koshin()"> -->
     </div>
   </div>
 <% end %>
 <div class="picture-new-backtoindex">
-  <a href="/places">Back to all posts</a>
+  <a href="/places">Back</a>
 </div>
