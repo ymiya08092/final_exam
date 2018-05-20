@@ -2,7 +2,9 @@
   <h2>Log in</h2>
   <div class="card bg-light" style="width: 600px; margin: auto;">
     <div class="card-body"> 
-
+      <p><%= notice %></p>
+      <p><%= alert %></p>
+   
       <%= form_for(@user, url: user_session_path) do |f| %>
         <div class="field"
             <div class="form-group">
