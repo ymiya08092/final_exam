@@ -24,8 +24,8 @@
               <li>
                 <%= link_to "Home",root_path,class:"btn btn-default btn-sm" %>
                 <%= link_to "Profile", user_path(current_user.id),class:"btn btn-default btn-sm" %>
-                <%= link_to 'New post', new_place_path,class:"btn btn-default btn-sm"%>
-                <%= link_to "All posts", places_path,class:"btn btn-default btn-sm" %>
+                <%= link_to 'New note', new_place_path,class:"btn btn-default btn-sm"%>
+                <%= link_to "All notes", places_path,class:"btn btn-default btn-sm" %>
                 <%= link_to "Logout",destroy_user_session_path, method: :delete,class:"btn btn-default btn-sm" %>
               </li>
             <% else %>

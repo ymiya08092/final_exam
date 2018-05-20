@@ -1,19 +1,20 @@
 <div class="card bg-light text-white">
   <div class="top-text">
-    <%= image_tag 'map.jpg',:size => '1000x800' %>
-    <p>This application allows you to save your notes on the map or edit them.
+      <%= image_tag 'map.jpg',:size => '1000x800' %>
+      <p>This application allows you to save your notes on the map or edit them.
     <br>
     <br>
     <br>
     <%= link_to "Login", new_user_session_path,class:"btn btn-light btn-sm btn-fontsize" %>
+    <br>
+    <br>
+    <br>
+    <%= notice %>
+    <br>
+    <%= alert %>
     </p>
+<!--    <p class="notice"><%= notice %></p>
     <br>
-    <p class="notice"><%= notice %></p>
-    <br>
-　　<p class="alert"><%= alert %></p>
-    
-    <br>
-    <br>
-    <br>
+　　<p class="alert"><%= alert %></p> -->
   </div>
 </div>

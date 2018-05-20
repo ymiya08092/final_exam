@@ -1,27 +1,30 @@
 <div class= "signup">
-
   <h2>Log in</h2>
+  <div class="card bg-light" style="width: 600px; margin: auto;">
+    <div class="card-body"> 
 
-<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-  <div class="field">
-    
-        <div class="form-group">
-          <input class="form-control" placeholder="Email address" autofocus="autofocus" type="email" name="user[email]" />
-        </div>
-        <div class="form-group">  
-          <input class="form-control" placeholder="Password" autofocus="autofocus" type="password" name="user[password]" />
-        </div>
+      <%= form_for(@user, url: user_session_path) do |f| %>
+        <div class="field"
+            <div class="form-group">
+              <input class="form-control" placeholder="Email address" autofocus="autofocus" type="email" name="user[email]" />
+            </div>
+            <div class="form-group">  
+              <input class="form-control" placeholder="Password" autofocus="autofocus" type="password" name="user[password]" />
+            </div>
         
-        <% if devise_mapping.rememberable? -%>
-          <div class="field">
-           <%= f.check_box :remember_me %>
-           <%= f.label :remember_me %>
-          </div>
-        <% end -%>
+            <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
         
-        <div class="form-group">
-          <input type="submit" name="commit" value="Login" class="btn btn-lg btn-primary btn-block btn-signin" data-disable-with="Login to my account" />
-        </div>
-
+            <div class="form-group">
+              <input type="submit" name="commit" value="Login" class="btn btn-lg btn-primary btn-block btn-signin" data-disable-with="Login to my account" />
+            </div>
+            <%= link_to "Forgot your password?", new_password_path(resource_name),class:"btn btn-default btn-sm" %><br />
+    </div>
+  </div>
+</div>
 <% end %>
 

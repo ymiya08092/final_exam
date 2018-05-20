@@ -3,7 +3,7 @@
  </script>
 
 <div class="user-new-title">
-  <h1>New post</h1>
+  <h1>New note</h1>
 </div>
 <!--
 <script>
@@ -57,7 +57,7 @@ function myfunc() {
         <%= f.text_field :address, class: "address" %>
       </div>
       
-    <!--  <%= link_to "SEARCH",'#', class: "map-search-button btn btn-primary btn-sm margin-bottom" %> -->
+    <%= link_to "SEARCH",'#', class: "map-search-button btn btn-primary btn-sm margin-bottom" %>
       <br>
       <div class="map-canvas" style="height: 0;"
                 data-lat="<%= f.object.latitude %>"
@@ -78,6 +78,10 @@ function myfunc() {
  
  
 <!--    <input type="button"  value="地図を表示" onclick="koshin()"> -->
+    <div class="picture-new-backtoindex">
+      <a href="/places">Back</a>
+    </div>
+
     </div>
   </div>
 <% end %>
