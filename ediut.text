@@ -9,7 +9,8 @@
  <div class="card bg-light" style="width: 600px; margin: auto;">
     <div class="card-body"> 
 
-      <%= form_for @place, url:confirm_edit_places_path,html: {method: :put} do |f| %>
+
+ <%= form_for @place, url:confirm_places_path,html: {method: :post} do |f| %>
 
       <% if @place.errors.any? %>
         <div id="error_explanation">
@@ -60,6 +61,7 @@
     location.reload();
   }
   </script>
+
  
     <input type="button"  value="地図を表示" onclick="koshin()"> -->
         </div>

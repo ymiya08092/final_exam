@@ -1,0 +1,42 @@
+<script async defer
+   src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDE9c9EOFd9YnXyEJDrhD-S1dojx1tzQOc&callback=triggerMap">
+ </script>
+
+<div class= "confirm">
+  <h3>Confirmation</h3>
+  <p>If the following information is correct then press the "Submit" button.</p>
+</div>
+
+<div class="card bg-light" style="width: 600px; margin: auto;">
+  <div class="card-body"> 
+
+    <%= form_for @place, :url =>'/places' do |f| %>
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :description %>
+      <%= f.hidden_field :address %>
+      <%= f.hidden_field :category %>
+      <%= f.hidden_field :latitude %>
+      <%= f.hidden_field :longitude %>
+
+      <p>Title:<%= @place.title %></p>
+      <p>Description:<%= @place.description %></p>
+      <p>Category:<%= @place.category %></p>
+      <p>Address：<%= @place.address %></p>
+      
+      <div class="map-show-canvas" 
+            data-latitude="<%= @place.latitude %>"
+            data-longitude="<%= @place.longitude %>">
+      </div>
+　    <br>
+     <div class="form-group margin-top">
+          <input type="submit" name="commit" value="Submit" class="btn btn-lg btn-primary btn-block btn-signin" data-disable-with="Save the note" />
+      </div>  
+    <div class= "confirm-button-back">
+      <div class="form-group margin-top">
+          <input type="submit" name="back" value="Back" class="btn btn-lg btn-default btn-block btn-signin" data-disable-with="" />
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+  

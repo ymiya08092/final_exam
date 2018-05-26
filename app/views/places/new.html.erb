@@ -24,7 +24,7 @@ function myfunc() {
 <div class="card bg-light" style="width: 600px; margin: auto;">
   <div class="card-body"> 
 
-    <%= form_for @place, :url =>'confirm' do |f| %>
+    <%= form_for @place, url:confirm_places_path,html: {method: :put} do |f| %>
 
       <% if @place.errors.any? %>
         <div id="error_explanation">

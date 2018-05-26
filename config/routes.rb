@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'session/index'
-
   get 'user/index'
-
   get 'tops/index'
   
+  patch 'places/:id' ,to: 'places#update', as: 'places_update'
+  post 'places',to: 'places#create', as: 'places_create'
    resources :places do
      collection do
        get "categories" => "places#categories"
-       post :confirm
+       put :confirm
+       put :confirm_edit
      end
   end
 

@@ -10,7 +10,7 @@
 <div class="card bg-light" style="width: 600px; margin: auto;">
   <div class="card-body"> 
 
-       <%= form_for @place, url:places_create_path, html: {method: :post} do |f| %>
+       <%= form_for @place, url:choose_new_or_edit, method:post_or_patch do |f| %>
         <%= f.hidden_field :title %>
         <%= f.hidden_field :description %>
         <%= f.hidden_field :address %>

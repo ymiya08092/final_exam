@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
-  before_action :set_place,only: [:show, :edit, :update,:destroy]
+  before_action :set_place,only: [:show, :edit, :destroy]
   before_action :authenticate_user!,only: [:index,:new, :edit, :show]
+##  before_action :set_previous_action,only: [:new,:edit,:confirm]
+  before_action :set_previous_path,only: [:confirm]
   
   
   def index
@@ -33,11 +35,12 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @user_id = current_user.id
     @place.user_id = current_user.id
+    @path = places_create_path
     render :new if @place.invalid?
     if params[:back]
       render :new
     elsif @place.save
-        redirect_to place_path(@place.id), notice: 'Your note has been created successfully.！'
+        redirect_to place_path(@place.id), notice: 'Your note has been updated successfully.！'
     else
         render :new
     end
@@ -49,12 +52,13 @@ class PlacesController < ApplicationController
   
   def update
     @place = Place.find(params[:id])
-   if params[:back]
-##      @place = Place.new(place_params)
-##     render:edit
-       redirect_to edit_place_path(@place.id)
+    @path = places_update_path
+    if params[:back]
+       render :edit
     elsif @place.update(place_params)
-      redirect_to place_path(@place.id), notice: 'Your note has been updated successfully.！'
+      redirect_to places_path,notice:"内容を編集しました！"
+    else
+      render 'edit'
     end
   end
   
@@ -64,29 +68,28 @@ class PlacesController < ApplicationController
   end
   
   def confirm
-    @place = Place.new(place_params)    
+    @place = Place.new(place_params)
     @place.user_id = current_user.id
-    if @place.valid?
-      render :action => 'confirm'
-    else
-      render :action => request.post? ? 'new' : 'edit'
-    end
+    @path = Rails.application.routes.recognize_path(request.referer)
+   render :new if @place.invalid?
   end
   
-  def confirm_edit
-    @place = Place.new(place_params)   
-    @place.user_id = current_user.id
-    if @place.valid?
-      render :action => 'confirm_edit'
-    else
-      render :action => request.post? ? 'new' : 'edit'
+  def set_previous_path
+    if Rails.application.routes.recognize_path(request.referer)[:action] = 'edit'
+##       @place = Place.find(params[:id])
+      @path = places_update_path(params[:id])
+    else 
+ ##     @place = Place.new(place_params)
+      @path = places_create_path
     end
   end
-  
-  
-  
   
   private
+  
+##  def set_previous_action
+##    path = Rails.application.routes.recognize_path(request.referer)
+##    @action = path[:action]
+##  end
 
   def require_login
     unless logged_in?
@@ -96,7 +99,7 @@ class PlacesController < ApplicationController
   end
  
   def place_params
-    params.require(:place).permit(:title,:description,:address,:latitude,:longitude,:category,:place,:id)
+    params.require(:place).permit(:title,:description,:address,:latitude,:longitude,:category,:id)
   end
   
   def set_place

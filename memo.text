@@ -1,0 +1,4 @@
+<% if request.referer = new_place_path %>
+
+<% elsif request.referer = edit_places_path %>
+
