@@ -70,7 +70,7 @@ class PlacesController < ApplicationController
     if @place.valid?
       render :action => 'confirm'
     else
-      render :action => request.post? ? 'new' : 'edit'
+      render :new
     end
   end
   
@@ -80,7 +80,7 @@ class PlacesController < ApplicationController
     if @place.valid?
       render :action => 'confirm_edit'
     else
-      render :action => request.post? ? 'new' : 'edit'
+      render :edit
     end
   end
   

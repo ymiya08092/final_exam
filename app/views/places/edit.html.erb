@@ -6,6 +6,10 @@
   <h1>Edit Note</h1>
 </div>
 
+<div class = "description-text">
+   <p>You can edit a note you made here. </p>
+</div>
+
  <div class="card bg-light" style="width: 600px; margin: auto;">
     <div class="card-body"> 
 
@@ -13,7 +17,7 @@
 
       <% if @place.errors.any? %>
         <div id="error_explanation">
-          <h2><%= @place.errors.count %>件のエラーがあります。</h2>
+           <h2>There were problems makeing the note.</h2>
           <ul>
 
           <% @place.errors.full_messages.each do |msg| %>
@@ -28,21 +32,24 @@
         <div class="panel-body"> 
           <div class="field">
             <%= f.label :title %><br>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, class: "title" %>
           </div>
           <div class="field">
-            <%= f.label :description %><br>
-            <%= f.text_field :description, class: "description" %>
+            <%= f.label :description %>
+            <p>(Why do you make tne memo about this place? Enter description about it)</p>
+            <%= f.text_area :description, class: "description" %>
           </div>
           <div class="field">
-            <%= f.label :category %><br>
+            <%= f.label :category %>
+            <p>(You can search this memo by this word )</p>
             <%= f.text_field :category, class: "category" %>
           </div>
           <div class="field">
-            <%= f.label :address %><br>
+            <%= f.label :address %>
+            <p>(Click "SEARCH" button after entering address.You can see a map)</p>
             <%= f.text_field :address, class: "address" %>
           </div>
-           <%= f.hidden_field :id %>
+             <%= f.hidden_field :id %>
       
           <%= link_to "SEARCH",'#', class: "map-search-button btn btn-primary btn-sm margin-bottom" %>
           <br>

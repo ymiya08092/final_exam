@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'session/index'
   get 'user/index'
   get 'tops/index'
+  get 'tops/how_to_use', to:'tops#how_to_use', as:'how_to_use'
   
   patch 'places/:id' ,to: 'places#update', as: 'places_update'
   post 'places',to: 'places#create', as: 'places_create'

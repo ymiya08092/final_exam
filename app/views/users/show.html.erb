@@ -3,8 +3,14 @@
   <h1><%= @user.name %>'s profile</h1>
 </div>
 
-<div class="card bg-light" style="width: 600px; margin: auto;">
+<div class = "description-text-margin">
+   <p>You can confirm your Email-address and also you can change Email-address or password. </p>
+   <p>If you would like to cancel your account, you can do here. 
+</div>
+
+<div class="card bg-light" style="width: 700px; margin: auto;">
   <div class="card-body"> 
+ <!--  <p class =description-howtouse>Click "How to use" if you would like to know how to use this app.</p> -->
     <div class="mypagecontent">
       <div class="mypagetext">
         <p>Email address: <%= @user.email %></p>

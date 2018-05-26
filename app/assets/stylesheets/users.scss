@@ -21,8 +21,9 @@ text-align: center;
 margin: 0 auto;
 width: 600px;
 }
-.mypagetext {
+.mypagetext  {
 text-align: left;  
+margin-top:10px;
 }
 
 .pictures-all-title {
@@ -36,5 +37,14 @@ margin-bottom: 50px;
 }
 
 .text-margin {
+margin-top: 10px;
 margin-bottom: 10px;
+}
+
+.margin_10px p {
+margin-top: 10px;
+}
+
+.description-howtouse {
+font-size: 18px;
 }

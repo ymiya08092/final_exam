@@ -23,6 +23,7 @@
              <!--ログイン済-->
               <li>
                 <%= link_to "Home",root_path,class:"btn btn-default btn-sm" %>
+                <%= link_to 'How to use', how_to_use_path,class:"btn btn-default btn-sm"%>
                 <%= link_to "Profile", user_path(current_user.id),class:"btn btn-default btn-sm" %>
                 <%= link_to 'New note', new_place_path,class:"btn btn-default btn-sm"%>
                 <%= link_to "All notes", places_path,class:"btn btn-default btn-sm" %>

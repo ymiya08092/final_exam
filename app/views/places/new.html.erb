@@ -3,8 +3,13 @@
  </script>
 
 <div class="user-new-title">
-  <h1>New note</h1>
+  <h1>New note </h1>
 </div>
+
+<div class = "description-text">
+   <p>Make a new note and keep something about the place as you like!!
+</div>
+
 <!--
 <script>
 　　　　window.onload = function() {
@@ -28,10 +33,9 @@ function myfunc() {
 
       <% if @place.errors.any? %>
         <div id="error_explanation">
-          <h2><%= @place.errors.count %>件のエラーがあります。</h2>
+          <h2>There were problems makeing the note.</h2>
           <ul>
-
-          <% @place.errors.full_messages.each do |msg| %>
+            <% @place.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
           </ul>
@@ -45,15 +49,18 @@ function myfunc() {
         <%= f.text_field :title, class: "title" %>
       </div>
       <div class="field">
-        <%= f.label :description %><br>
+        <%= f.label :description %>
+        <p>(Why do you make tne memo about this place? Enter description about it)</p>
         <%= f.text_area :description, class: "description" %>
       </div>
       <div class="field">
-        <%= f.label :category %><br>
+        <%= f.label :category %>
+        <p>(You can search this memo by this word )</p>
         <%= f.text_field :category, class: "category" %>
       </div>
       <div class="field">
-        <%= f.label :address %><br>
+        <%= f.label :address %>
+        <p>(Click "SEARCH" button after entering address.You can see a map)</p>
         <%= f.text_field :address, class: "address" %>
       </div>
       

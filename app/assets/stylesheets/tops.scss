@@ -23,7 +23,7 @@ nav {
 }
 
 nav li {
-  width: 600px;
+  width: 800px;
   text-align: right;
   display: inline-block;
   float: right;
@@ -31,7 +31,7 @@ nav li {
 
 nav ul {
 float: right;
-width: 600px;
+width: 800px;
 }
 
 .top-text p {
@@ -46,10 +46,19 @@ width: 600px;
   text-align: center;
   padding: 20px 0px 20px 0px;
   width: 70%;
-  height: 30%;
+  height: 25%;
    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .btn-fontsize {
 font-size: 20px;
+}
+
+.how_to_use_text {
+margin-top: 5px;
+font-size: 18px;
+}
+
+.sign-in-notice {
+font-size:20px;
 }
