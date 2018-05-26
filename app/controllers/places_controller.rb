@@ -51,8 +51,9 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
    if params[:back]
 ##      @place = Place.new(place_params)
-##     render:edit
-       redirect_to edit_place_path(@place.id)
+     @place = Place.new(place_params)  
+     render:edit
+##       redirect_to edit_place_path(@place.id)
     elsif @place.update(place_params)
       redirect_to place_path(@place.id), notice: 'Your note has been updated successfully.！'
     end
