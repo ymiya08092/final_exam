@@ -5,7 +5,9 @@
     <br>
     <br>
     <br>
-    <%= link_to "Login", new_user_session_path,class:"btn btn-light btn-sm btn-fontsize" %>
+    <% unless user_signed_in? %>
+      <%= link_to "Login", new_user_session_path,class:"btn btn-light btn-sm btn-fontsize" %>
+    <% end %>
     <br>
     <br>
     <br>
