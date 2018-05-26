@@ -1,0 +1,19 @@
+module PlacesHelper
+  def choose_new_or_edit
+    @path = Rails.application.routes.recognize_path(request.referer)[:action]
+    if @path == :edit || :show
+       places_update_path(@place.id)  
+    elsif  @path == :new || :index
+       places_create_path
+    end
+  end
+  
+  def post_or_patch
+    @path = Rails.application.routes.recognize_path(request.referer)[:action]
+    if @path == :edit || :show
+      "patch"
+    elsif @path == :new || :index
+      "post"
+    end
+  end
+end
